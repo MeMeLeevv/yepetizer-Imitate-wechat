@@ -1,0 +1,146 @@
+.wxSearch {
+  position: absolute;
+  top: 43px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 1px #eee solid;
+  background-color: rgba(0, 0, 0, 0.2);
+  
+}
+
+.wxSearchInner {
+  background-color: #fff;
+}
+
+.wxSearch-section {
+  background-color: #fff;
+  padding: 5px 10px;
+  border: 1px #eee solid;
+}
+
+.wxSearch-pancel {
+  display: flex;
+  flex-direction: row;
+}
+
+.wxSearch-input {
+  flex: 8;
+  background-color: #eee;
+  padding: 5px 10px;
+}
+
+.wxSearch-button {
+  flex: 1;
+  border: none !important;
+  color: cornflowerblue !important;
+}
+
+.wxSearchTitle {
+  display: block;
+  padding: 10px 5px 5px 10px;
+  font-size: 14px;
+  text-align: center;
+  transition: all .5s;
+}
+.oneLine{
+  width: 100%;
+  text-align: center; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.text{
+  font-size: 12px;
+}
+.iconfont{
+  line-height: 30px;
+  display: inline-block;
+  width: 30px;
+  font-size: 14px;
+  transition: all .5s ;
+}
+
+
+.wxSearchMindKeyItem {
+  padding: 10px 5px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  font-size: 14px;
+  color: cornflowerblue;
+}
+
+.wxSearchKeyList {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  transition: all .1s;
+}
+
+.wxSearchKeyItem {
+  transition: all .5s;
+  flex: 0 0 20%;
+  /*flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]默认值为0 1 auto  */
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #eee;
+  margin: 0 5px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background-color: #eee;
+  height: 25px;
+  line-height: 25px;
+}
+.wxSearchHistoryList{
+  width: 100%;
+  height: auto;
+   border-bottom: 1px solid #eee;
+   display: flex;
+  flex-wrap:wrap;
+  padding: 5px;
+}
+
+.wxSearchHistoryItem {
+  padding: 5px 5px;
+  border-bottom: 1px solid #eee;
+   background-color: #eee
+}
+
+.wxSearchHistoryItemText {
+  /*flex: 8;*/
+  font-size: 14px;
+  padding: 5px 5px;
+  background-color: #eee;
+  border: 1px solid #eee;
+  margin: 5px;
+  border-radius: 5px;
+  width: auto;
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wxSearchHistoryItemDel {
+  flex: 1;
+  font-size: 12px;
+  text-align: center;
+  padding: 3px 5px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.wxSearchHistoryEmpty {
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-size: 12px;
+}
+
+.wxSearchDeleteAllBtn {
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 12px;
+}

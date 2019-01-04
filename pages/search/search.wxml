@@ -1,0 +1,71 @@
+<import src="/wxSearch/wxSearch.wxml"/>
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" style='left:{{left}}px' type="search" size="14"></icon>
+                    <input style='text-align:{{align}}' bindtap='wxSerchFocus' type="text" class="weui-search-bar__input" placeholder="搜索想要的诗词关键字"  bindfocus="wxSerchFocus" value="{{wxSearchData.value}}"  bindinput="wxSearchInput" focus='{{inputShowed}}'/>
+                    <view wx:if="{{wxSearchData.value[0]}}" class="weui-icon-clear"  bindtap="inputclear">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <!--一开始的初始搜索界面 -->
+                <!--
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索想要的诗词关键字</view>
+                </label>
+                -->
+            </view><!--weui-search-bar_form  -->
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="wxSearchFn">搜索</view><!--搜索按钮  -->
+        </view>
+        
+      <!-->
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+        </view>-->
+        <!--weui-search-bar  -->
+    </view>
+   <!--> <view class='page_content'></view>-->
+</view>
+<template is="wxSearch" data="{{wxSearchData}}"/>
+<view class='page_content'></view>
+
+<!--pages/search/search.wxml-->
+<!--
+<view class='bg'>
+<view class="page-header">
+<i class="iconfont icon-search1"></i>
+<input class='iconfont' class='page-header-text' placeholder='搜索想要的诗词关键字' auto-focus bindchange="search"><i class="iconfont icon-search1"></i></input>
+<navigator class='cancel'>搜索</navigator>
+</view>
+<scroll-view class="page-body" scroll-y="true">
+  <view wx:for="{{lists}}" class='item'>
+  <text class='title'>{{item.title}}</text>
+  <text class='author'>{{item.authors}}</text>
+  <text class='content'>{{item.content}}</text>
+  <view class='spx'></view>
+  </view>
+</scroll-view>
+</view>
+-->

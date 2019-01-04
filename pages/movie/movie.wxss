@@ -1,0 +1,29 @@
+/* pages/movie/movie.wxss */
+.page-body{
+  background-image: url(http://img.kaiyanapp.com/048b16bb766b7b509851fe7cc31cc1eb.jpeg?imageMogr2/quality/60/format/jpg)
+}
+.video{
+  width: 100%;
+  height: 225px;
+  padding: 0;
+}
+video{
+  height: 100%;
+}
+text{
+  color:white;
+  font-size: 14px;
+  display: block;
+  margin: 0 10rpx;
+
+}
+.infro{
+  margin-top: 20rpx;
+  color:white;
+  font-weight: bold;
+  font-size: 16px;
+}
+.detail{
+  margin: 20rpx 10rpx;
+  line-height: 20px;
+}

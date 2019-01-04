@@ -1,0 +1,10 @@
+<scroll-view class="page-body" scroll-y="true">
+    <view>
+    <!--如果视频src播放不了,请在“ 设置 ”中找到“ 项目设置 ”，在“ 调试基础库 ”上设成“ 2.3.2 ”即可。不要问我为什么…… -->
+      <video id='myVideo' src="{{src}}" controls="true" duration='{{movie.duration}}' binderror="listenerVideo" class="video" poster='{{movie.coverForDetail}}' objectFit='fill' page-gesture='true' direction='0'></video>
+      <text class='infro'>{{movie.title}}</text>
+      <text>————</text>
+      <text>{{movie.category}} / {{movie.duration}}s</text>
+      <text class='detail'>{{movie.description}}</text>
+    </view>
+</scroll-view>

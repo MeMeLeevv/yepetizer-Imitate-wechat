@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/movie/movie",
+    "pages/search/search",
+    "pages/category/category",
+    "pages/profile/profile"
+   
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Eyepetizer",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "color":"#000",
+    "list":[{
+      "text": "首页",
+      "iconPath": "images/home-unselected@2x.png",
+      "selectedIconPath": "images/home-selected@2x.png",
+      "pagePath": "pages/index/index"
+    },
+    {
+      "text": "分类",
+      "iconPath": "images/categories-unselected@2x.png",
+      "selectedIconPath": "images/categories-selected@2x.png",
+      "pagePath": "pages/category/category"
+    },
+    
+    {
+      "text": "我的",
+      "iconPath": "images/profile-unselected@2x.png",
+      "selectedIconPath": "images/profile-selected@2x.png",
+      "pagePath": "pages/profile/profile"
+    }]
+  }
+
+}
