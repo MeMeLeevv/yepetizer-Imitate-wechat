@@ -25,7 +25,6 @@ Page({
           movie:res.data,
           src: res.data.playUrl
         }),
-       
         console.log("Url=" + res.data.playUrl);
       },
       
