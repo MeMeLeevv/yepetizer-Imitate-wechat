@@ -1,8 +1,6 @@
 
 function searchMyData() {
-
 }
-
 
 var list = [
   {
@@ -10,63 +8,54 @@ var list = [
     MTID: 'MT001',
     category: '#广告',
     imageAddress: '../../images/4.jpg',
-
   },
   {
     id: '2',
     MTID: 'MT002',
     category: '#生活',
     imageAddress: '../../images/4.jpg',
-
   },
   {
     id: '3',
     MTID: 'MT003',
     category: '#动画',
     imageAddress: '../../images/4.jpg',
-
   },
   {
     id: '4',
     MTID: 'MT004',
     category: '#搞笑',
     imageAddress: '../../images/4.jpg',
-
   },
   {
     id: '5',
     MTID: 'MT005',
     category: '#开胃',
     imageAddress: '../../images/4.jpg',
-
   },
   {
     id: '6',
     MTID: 'MT006',
     category: '#创意',
     imageAddress: '../../images/4.jpg',
-
   },
   {
     id: '7',
     MTID: 'MT007',
     category: '#运动',
     imageAddress: '../../images/4.jpg',
-
   },
   {
     id: '8',
     MTID: 'MT008',
     category: '#音乐',
     imageAddress: '../../images/4.jpg',
-
   },
   {
     id: '9',
     MTID: 'MT009',
     category: '#萌宠',
-    imageAddress: '../../images/4.jpg',
-
+    imageAddress: '../../images/4.jpg'
   },
 ];
 
