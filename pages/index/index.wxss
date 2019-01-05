@@ -33,12 +33,20 @@
    flex-direction: column;
    justify-content: space-around;
 }
-.searchPlace{
+.header{
   width: 100%;
   height: 100rpx;
+  text-align: center;
+  position: relative;
 }
+.title{
+  line-height: 100rpx;
+}
+
 .searchIcon{
+  position: absolute;
   width: 100rpx;
   height: 100rpx;
-  float: right;
+  right: 0;
+  top: 0;
 }

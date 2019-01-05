@@ -2,18 +2,22 @@
   <text class="page-header-text">{{title}}</text>
 </view>-->
 <scroll-view class="page-body" scroll-y="true">
-<navigator class='searchPalce' url="../search/search">
-<image src='../../images/search.png' class='searchIcon'></image>
-</navigator> 
-  <navigator wx:for="{{movies}}" url="../movie/movie?id={{item.data.content.data.id}}" >
+  <view class="header">
+    <text class="title">{{title}}</text>
+    <navigator class='searchPalce' url="../search/search">
+      <!-->搜索icon-->
+      <image src='../../images/search.png' class='searchIcon'></image>
+    </navigator>
+  </view>
+  <navigator wx:for="{{movies}}" url="../movie/movie?id={{item.data.content.data.id}}">
     <view class="item">
       <image src="{{item.data.content.data.cover.feed}}" class='cover'></image>
       <view class="meta">
-      <view class="bottom">
-      <view class="Classify">{{item.data.header.description}} | {{item.data.content.data.duration}}s</view>
-        <text class="intro">{{item.data.content.data.title}}</text>
+        <view class="bottom">
+          <view class="Classify">{{item.data.header.description}} | {{item.data.content.data.duration}}s</view>
+          <text class="intro">{{item.data.content.data.title}}</text>
         </view>
-        
+
       </view>
     </view>
 
