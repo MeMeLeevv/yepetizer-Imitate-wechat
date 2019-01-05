@@ -1,12 +1,14 @@
+<!--> WXS（WeiXin Script）是小程序的一套脚本语言，结合 WXML，可以构建出页面的结构。-->
 <wxs src='../../utils/categoryData.wxs' module="tools" />
+
 <navigator class='searchPalce' url="../search/search">
-<image src='../../images/search.png' class='searchIcon'></image>
-</navigator> 
+  <image src='../../images/search.png' class='searchIcon'></image>
+</navigator>
 <scroll-view class="body" scroll-y="true">
-    <view class="item" wx:for="{{tools.list}}">
-      <view class='cover' >
+  <view class="item" wx:for="{{tools.list}}">
+    <view class='cover'>
       <image src="{{item.imageAddress}}" mode='scaleToFill' class='pic'></image>
-      </view>
-        <text class="intro">{{item.category}}</text>
     </view>
+    <text class="intro">{{item.category}}</text>
+  </view>
 </scroll-view>
