@@ -63,7 +63,8 @@ function init(that, barHeight, keys, isShowKey, isShowHis, callBack) {
     view.isShowSearchHistory = isShowHis;
   }
   
-  var keysNum = keys.length / 2;//只展示初始化keys数目的一半
+  var keysNum = keys.length / 2;
+  //只展示初始化keys数目的一半
   //随机抽取关键字
   for (var i = 0; i < keysNum; i++) {
     // console.log(keysOrigin.length)
@@ -136,7 +137,8 @@ function arrowforward(that) {
     temData.keys = temData.keys.concat(keysOri);//两数组合并连接，concat 會返回值，需要載體去承接
   }else{//否则是展开状态
     temData.arrowHeight = 80;
-    temData.keys.splice(-keysOriNum/2,keysOriNum/2);//移除掉后一半，keys最好是偶數……
+    temData.keys.splice(-keysOriNum/2,keysOriNum/2);
+    //移除掉后一半，keys最好是偶數……
     
   }
   that.setData({

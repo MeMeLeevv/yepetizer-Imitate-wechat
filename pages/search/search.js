@@ -1,59 +1,59 @@
 var WxSearch = require('../../wxSearch/wxSearch.js')
-var inputValue="";
+var inputValue = "";
 Page({
   data: {
     inputShowed: false,
     left: 85,
     align: 'center',
-    inputValue:"",
-    wxSearchData: {//可注释掉？？？可以不先声明data的值！
+    inputValue: "",
+    wxSearchData: { //可注释掉？？？可以不先声明data的值！
       view: {
         isShow: true
       }
     },
   },
 
-  onLoad: function () {
+  onLoad: function() {
     var that = this;
     //初始化的时候渲染wxSearchdata
-    WxSearch.init(that, 43, ['weappdev', '小程序', 'wxParse', 'wxSearch', 'wxNotification','besu','hhahaha','Selina','55555','what you','goodforyou','heyguy']);
+    WxSearch.init(that, 43, ['weappdev', '小程序', 'wxParse', 'wxSearch', 'wxNotification', 'besu', 'hhahaha', 'Selina', '55555', 'what you', 'goodforyou', 'heyguy']);
     WxSearch.initMindKeys(['weappdev.com', '微信小程序开发', '微信开发', '微信小程序']);
   },
-  onReady: function () {
+  onReady: function() {
     this.animation = wx.createAnimation()
   },
 
-  refresh:function(){
+  refresh: function() {
     var that = this;
     //console.log(this)
     WxSearch.refresh(that)
   },
-  arrowforward:function(){
+  arrowforward: function() {
     var that = this;
     WxSearch.arrowforward(that)
   },
 
-  inputclear: function (e) {
+  inputclear: function(e) {
     var that = this
-    inputValue=""
+    inputValue = ""
     WxSearch.clearInput(e, that)
     WxSearch.wxSearchFocus(e, that);
     setInputLeft(that);
   },
-  wxSearchFn: function (e) {//点击搜索button后
+  wxSearchFn: function(e) { //点击搜索button后
     var that = this
     WxSearch.wxSearchAddHisKey(that);
 
   },
-  wxSearchInput: function (e, inputTyping) {//bindinput——键盘输入时触发的事件
+  wxSearchInput: function(e, inputTyping) { //bindinput——键盘输入时触发的事件
     var that = this
     inputValue = e.detail.value;
     setValue(that);
     //console.log(e.data.value)
     //WxSearch.wxSearchFocus(e, that);
-    WxSearch.wxSearchInput(e, that); 
+    WxSearch.wxSearchInput(e, that);
   },
-  wxSerchFocus: function (e, inputFocus) {
+  wxSerchFocus: function(e, inputFocus) {
     var that = this
     //inputValue = e.data.value
     WxSearch.wxSearchFocus(e, that);
@@ -70,7 +70,7 @@ Page({
       });
     }
   },*/
-  wxSearchKeyTap: function (e) {
+  wxSearchKeyTap: function(e) {
     var that = this
     inputValue = e.target.dataset.key
     setValue(that);
@@ -81,11 +81,11 @@ Page({
     var that = this
     WxSearch.wxSearchDeleteKey(e, that);
   },*/
-  wxSearchDeleteAll: function (e) {
+  wxSearchDeleteAll: function(e) {
     var that = this;
     WxSearch.wxSearchDeleteAll(that);
   },
-  wxSearchTap: function (e) {
+  wxSearchTap: function(e) {
     var that = this
     //console.log(WxSearch)
     if (inputValue === "") {
@@ -93,7 +93,7 @@ Page({
     }
     //console.log("vv")
     WxSearch.wxSearchHiddenPancel(that);
-   // WxSearch.wxSearchBlur(e, that);
+    // WxSearch.wxSearchBlur(e, that);
   },
   /*clearInput: function () {
     //console.log("geieii")
@@ -104,44 +104,44 @@ Page({
   },*/
 
 
-/*
-  inputFocus: function() {
-    this.setData({
-      left: 10,
-      align: "left",
-      inputShowed: true
-    })
-  },
-
-  hideInput: function() {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
-  },
- 
-  inputTyping: function(e) {
-    inputValue = e.detail.value;
-    this.setData({
-      inputVal: e.detail.value,
-
-    });
-  },
-
-  inputBlur: function(e) {
-
-    if (e.detail.value === "") {
+  /*
+    inputFocus: function() {
       this.setData({
-        left: 85,
-        align: "center",
+        left: 10,
+        align: "left",
+        inputShowed: true
+      })
+    },
+
+    hideInput: function() {
+      this.setData({
+        inputVal: "",
         inputShowed: false
       });
-    }
-  },
-  */
+    },
+   
+    inputTyping: function(e) {
+      inputValue = e.detail.value;
+      this.setData({
+        inputVal: e.detail.value,
+
+      });
+    },
+
+    inputBlur: function(e) {
+
+      if (e.detail.value === "") {
+        this.setData({
+          left: 85,
+          align: "center",
+          inputShowed: false
+        });
+      }
+    },
+    */
 });
 
-function setInputCenter(that){
+function setInputCenter(that) {
   that.setData({
     left: 85,
     align: "center",
@@ -150,13 +150,13 @@ function setInputCenter(that){
   });
 }
 
-function setValue(that){
+function setValue(that) {
   that.setData({
-    inputValue:inputValue
+    inputValue: inputValue
   })
 }
 
-function setInputLeft(that){
+function setInputLeft(that) {
   that.setData({
     left: 10,
     align: "left",
