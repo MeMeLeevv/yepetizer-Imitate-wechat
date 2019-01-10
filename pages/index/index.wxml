@@ -1,6 +1,3 @@
-<!--<view class="page-header">
-  <text class="page-header-text">{{title}}</text>
-</view>-->
 <scroll-view class="page-body" scroll-y="true">
   <view class="header">
     <text class="title">{{title}}</text>
@@ -20,6 +17,5 @@
 
       </view>
     </view>
-
   </navigator>
 </scroll-view>

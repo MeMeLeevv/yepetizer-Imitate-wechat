@@ -49,27 +49,14 @@ Page({
     var that = this
     inputValue = e.detail.value;
     setValue(that);
-    //console.log(e.data.value)
-    //WxSearch.wxSearchFocus(e, that);
     WxSearch.wxSearchInput(e, that);
   },
   wxSerchFocus: function(e, inputFocus) {
     var that = this
-    //inputValue = e.data.value
     WxSearch.wxSearchFocus(e, that);
     setInputLeft(that);
   },
-  /*wxSearchBlur: function (e, inputFocus) {
-    var that = this
-    WxSearch.wxSearchBlur(e, that);
-    if (e.detail.value === "") {
-      this.setData({
-        left: 85,
-        align: "center",
-        inputShowed: false
-      });
-    }
-  },*/
+
   wxSearchKeyTap: function(e) {
     var that = this
     inputValue = e.target.dataset.key
@@ -77,68 +64,18 @@ Page({
     WxSearch.wxSearchKeyTap(e, that);
 
   },
-  /*wxSearchDeleteKey: function (e) {
-    var that = this
-    WxSearch.wxSearchDeleteKey(e, that);
-  },*/
+
   wxSearchDeleteAll: function(e) {
     var that = this;
     WxSearch.wxSearchDeleteAll(that);
   },
   wxSearchTap: function(e) {
     var that = this
-    //console.log(WxSearch)
     if (inputValue === "") {
       setInputCenter(that);
     }
-    //console.log("vv")
     WxSearch.wxSearchHiddenPancel(that);
-    // WxSearch.wxSearchBlur(e, that);
   },
-  /*clearInput: function () {
-    //console.log("geieii")
-    this.setData({
-      inputVal: "",
-      inputShowed: true
-    });
-  },*/
-
-
-  /*
-    inputFocus: function() {
-      this.setData({
-        left: 10,
-        align: "left",
-        inputShowed: true
-      })
-    },
-
-    hideInput: function() {
-      this.setData({
-        inputVal: "",
-        inputShowed: false
-      });
-    },
-   
-    inputTyping: function(e) {
-      inputValue = e.detail.value;
-      this.setData({
-        inputVal: e.detail.value,
-
-      });
-    },
-
-    inputBlur: function(e) {
-
-      if (e.detail.value === "") {
-        this.setData({
-          left: 85,
-          align: "center",
-          inputShowed: false
-        });
-      }
-    },
-    */
 });
 
 function setInputCenter(that) {
@@ -164,74 +101,3 @@ function setInputLeft(that) {
     inputValue: inputValue
   })
 }
-
-// pages/search/search.js
-/*
-var API_URL = "https://api.apiopen.top/likePoetry";
-Page({
-  data: {
-    lists:[]
-  },
-  search:function(e){
-    if(!e.detail.value){
-      return;
-    }
-    wx.showToast({
-      title: '加载中...',
-      icon:'loading',
-      duration:1000,
-    });
-    var that = this;
-    wx.request({
-      url: API_URL+"?name="+e.detail.value,
-      data:{},
-      header:{
-        'Content-Type':'application/json'
-      },
-      success:function(res){
-        console.log(res.data);
-        wx.hideToast();
-        that.setData({
-          lists:res.data.result,
-        })
-      }
-    });
-  },
-
-
-  onLoad: function (options) {
-
-  },
-
-  onReady: function () {
-
-  },
-
-
-  onShow: function () {
-
-  },
-
-
-  onHide: function () {
-
-  },
-
-
-  onUnload: function () {
-
-  },
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
-  }
-})
-*/

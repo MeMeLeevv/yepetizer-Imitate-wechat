@@ -1,4 +1,5 @@
 var API_URL = 'http://baobab.kaiyanapp.com/api/v1/video/';
+var requests = require('../../requests/request.js');
 // pages/movie/movie.js
 Page({
   data: { 
@@ -13,23 +14,11 @@ Page({
     this.videoCtx.requestFullScreen({direction:90});
     var that=this;
     //console.log(params);
-    wx.request({
-      url: API_URL+params.id,
-      data:{},
-      header:{
-        'Content-Type':'application/json'
-      },
-      success:function(res){
-        console.log(res.data);
-        that.setData({
-          movie:res.data,
-          src: res.data.playUrl
-        }),
-        console.log("Url=" + res.data.playUrl);
-      },
-      
+    requests.request(API_URL + params.id,{},(data)=>{
+      that.setData({
+        movie: data,
+        src: data.playUrl
+      })
     });
   },
-
-  
 })
