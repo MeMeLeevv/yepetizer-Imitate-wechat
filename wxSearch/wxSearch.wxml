@@ -4,7 +4,7 @@
 
       <view  wx:if="{{wxSearchData.mindKeys[0]}}" class="wxSearchMindKey">
         <view class="wxSearchMindKeyList">
-          <block wx:for="{{wxSearchData.mindKeys}}">
+          <block wx:for="{{wxSearchData.mindKeys}}" wx:key="">
             <view class="wxSearchMindKeyItem" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>
           </block>
         </view>
@@ -17,7 +17,7 @@
           <icon class='icon2 iconfont icon-downforward' catchtap="arrowforward" style='transform:rotate({{wxSearchData.arrow}}deg)'></icon>
         </view>
         <view class="wxSearchKeyList" style='height:{{wxSearchData.arrowHeight}}px'>
-          <block wx:for="{{wxSearchData.keys}}">
+          <block wx:for="{{wxSearchData.keys}}" wx:key="">
             <view class="wxSearchKeyItem" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>
           </block>
         </view>
@@ -26,7 +26,7 @@
       <view wx:if="{{wxSearchData.his[0]}}" class="wxSearchHistory" style="display:{{wxSearchData.view.isShowSearchHistory ? 'block':'none'}}">
         <text class="wxSearchTitle"><icon class='iconfont icon-iconfontshanchu3'></icon>搜索历史</text>
         <view wx:if="{{wxSearchData.his[0]}}" class="wxSearchHistoryList">
-          <block wx:for="{{wxSearchData.his}}">
+          <block wx:for="{{wxSearchData.his}}" wx:key="">
             
              <!--<text class="wxSearchHistoryItemText line-limit-length" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</text>-->
              <text class="wxSearchHistoryItemText" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</text>

@@ -6,7 +6,7 @@
       <image src='../../images/search.png' class='searchIcon'></image>
     </navigator>
   </view>
-  <navigator wx:for="{{movies}}" url="../movie/movie?id={{item.data.content.data.id}}">
+  <navigator wx:for="{{movies}}" url="../movie/movie?id={{item.data.content.data.id}}" wx:key="">
     <view class="item">
       <image src="{{item.data.content.data.cover.feed}}" class='cover'></image>
       <view class="meta">

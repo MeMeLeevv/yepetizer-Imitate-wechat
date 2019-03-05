@@ -1,14 +1,78 @@
-<!--> WXS（WeiXin Script）是小程序的一套脚本语言，结合 WXML，可以构建出页面的结构。-->
+<!-- > WXS（WeiXin Script）是小程序的一套脚本语言，结合 WXML，可以构建出页面的结构。 -->
 <wxs src='../../utils/categoryData.wxs' module="tools" />
-
-<navigator class='searchPalce' url="../search/search">
-  <image src='../../images/search.png' class='searchIcon'></image>
-</navigator>
-<scroll-view class="body" scroll-y="true">
-  <view class="item" wx:for="{{tools.list}}">
-    <view class='cover'>
-      <image src="{{item.imageAddress}}" mode='scaleToFill' class='pic'></image>
+<view class="bodyColumn">
+  <view class='searchPlace'>
+    <view bindtap="titleClick" class="titleArea">
+      <view data-titleClick="{{index}}" id="item{{index}}" class='title {{titleClick === index ? "redBorder" : "" }}' wx:for="{{title}}" wx:key="">
+        {{item}}
+      </view>
     </view>
-    <text class="intro">{{item.category}}</text>
+    <image src='../../images/search.png' bindtap='goSearchPage' class='searchIcon'></image>
   </view>
-</scroll-view>
+  <view>
+    <swiper current="{{titleClick}}" bindchange="switchTab" class="swiperBlock" style="height:{{swiperHeight}}px">
+       <swiper-item>
+        <scroll-view class="scroll-view" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrollToLower">
+          <view>
+            <text class='title'>社区活动 ></text>
+            <view class="page-section page-section-spacing swiper">
+              <swiper autoplay='true' circular="true" interval="3000" duration="500" next-margin='10rpx'>
+                <block wx:for="{{background}}" wx:key="*this">
+                  <swiper-item>
+                    <view class="swiper-item .demo-text {{item.class}}">
+                      <image src='{{item.url}}' mode='scaleToFill' class='swiperimg'></image>
+                    </view>
+                  </swiper-item>
+                </block>
+              </swiper>
+            </view>
+          </view>
+          <view class="hr"></view>
+          <view class="flow">
+            <!-- >!!!!!!!!!!!!!!!!!!!!!! column下面的所有信息区块要用块状标签包围，如 block -->
+            <view wx:for="{{flowData.column}}" wx:for-item="bigItem" wx:key="">
+              <!-- 分成两列 -->
+              <view class="flowColumnItem">
+                <block wx:for="{{flowData.oriImg}}" wx:key="">
+                  <!-- >console不会显示for所在的标签，所有以下信息部分需要统一用块状标签来整合！！！！！！！！！！！！！！ 
+              开始检测每一项图片的index，取余=0则在第一列，余=1则在第二列 -->
+                  <view wx:if="{{index % 2 === bigItem ? true : false}}" class='WxMasonry' style="width:{{flowData.height}}px">
+                    <!-- >图片宽高的获取在api中没找到，但是可以在image标签里可以找到 -->
+                    <image id="{{index}}" style="height:{{flowData.height}}px;" class="colitem" src="{{item.thumb}}" bindload="onImageLoad" mode='aspectFill' lazy-load='true'></image>
+                    <!-- >指定宽度width，函数（e）的数据中图片大小仍然显示原图长宽， -->
+                    <view class='userMsg'>
+                      <view class='head'>
+                        <image class="headImg" src='{{item.thumb}}' mode="aspectFit"></image>
+                        <view class='name'>{{item.name}}</view>
+                      </view>
+                      <view class='info' style=''>{{item.cate_sname}}</view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+          <view hidden='{{hideLoad}}' class='loadIcon'>
+            <view wx:if="{{hideLoadIcon}}">
+              <image src='../../images/loading.gif' mode='aspectFill'></image>
+            </view>
+            <view wx:else>
+              <text>NO More……</text>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+     <swiper-item>
+        <scroll-view class="body" scroll-y="true">
+          <view class="item" wx:for="{{tools.list}}" wx:key="">
+            <view class='cover'>
+              <image src="{{item.imageAddress}}" mode='scaleToFill' class='pic'></image>
+            </view>
+            <text class="intro">{{item.category}}</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    
+    </swiper>
+  </view>
+</view>

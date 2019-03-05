@@ -16,3 +16,6 @@ text{
   text-align: center;
   margin: 20rpx;
 }
+button{
+  width: 50%;
+}

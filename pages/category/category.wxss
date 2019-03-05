@@ -1,8 +1,18 @@
-
+page{
+  width: 100%;
+  height: 100%;
+}
 .body{
     display: flex;
   justify-content: space-around;
   box-sizing: border-box;
+  height: 100%;
+}
+
+.bodyColumn{
+  display: flex;
+  flex-direction: column;
+
 }
 .item{
   width: 48%;
@@ -22,12 +32,283 @@ text{
   font-weight: bold;
   margin:  10rpx;
 }
-.searchPlace{
+.searchPlace{ 
   width: 100%;
   height: 100rpx;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.titleArea{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.title{
+  font-size: 16px;
+  position: relative;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.redBorder::before{
+  content:"";
+  display: inline-block;
+  width:20rpx;
+  height: 15px;
+  border-bottom: 2px solid red; 
+  position: absolute;
+  bottom: -10rpx;
+  left: 40%;  
 }
 .searchIcon{
   width: 100rpx;
   height: 100rpx;
-  float: right;
+  right: 0;
+  position: absolute;
 }
+.swiperBlock{
+  width:100%;
+  background-color: #f7f7f7;
+
+}
+
+
+scroll-view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: block;
+  height: 100%;
+}
+
+
+.page-section {
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+
+.flow {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.flowColumnItem{
+  display:flex;
+  flex-direction:column;
+}
+
+.colitem {
+  display: inline-block;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10rpx 30rpx;
+  display: block;
+}
+
+.page-section_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-section:last-child {
+  margin-bottom: 0;
+}
+
+.page-section-gap {
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.page-section-spacing {
+  box-sizing: border-box;
+  padding: 0 40rpx;
+}
+
+.page-section-title {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.page-section-gap .page-section-title {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.demo-text {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.demo-text:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.demo-text-1:before {
+  content: '伶俐斑驳';
+  color: darkolivegreen;
+}
+
+.demo-text-2:before {
+  content: '星辰浩瀚';
+}
+
+.demo-text-3:before {
+  content: '火光四射';
+  color: darkolivegreen;
+}
+
+.swiperimg {
+  display: inline; /*使自己image标签的长宽失效*/
+}
+
+.page-section-title {
+  padding: 0;
+}
+
+.hr {
+  border-bottom: 0.2rpx solid lightgray;
+  height: 5rpx;
+  margin: 40rpx 40rpx;
+  display: block;
+}
+
+.swiper-item {
+  display: block;
+  height: 150px;
+}
+
+swiper-item {
+  border-radius: 5px;
+}
+
+.page-section-title {
+  margin-top: 60rpx;
+  position: relative;
+}
+
+.WxMasonry {
+  box-sizing: border-box;
+  width: 100%;
+  padding-bottom: 5px;
+  margin: 5px 0;
+  transition: opacity 0.4s ease-in-out;
+  border: 0.5px solid lightgray;
+  border-radius: 4px;
+}
+
+.head {
+  box-sizing: border-box;
+  line-height: 18px;
+  height: 18px;
+  padding-bottom: 40rpx;
+}
+
+.headImg{
+  width:15px;
+  height:15px;
+  border-radius:100%;
+  margin:0 5px;
+}
+.name{
+  font-size:14px;
+  display:inline-block;
+}
+
+.loadIcon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.loadIcon image {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+.loadIcon text {
+  font-size: 18px;
+}
+
+/*
+省略多余的字
+
+因使用了WebKit的CSS扩展属性，该方法适用于WebKit浏览器及移动端；
+    -webkit-line-clamp用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。
+    常见结合属性：
+    display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。
+    -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。(属性规定框的子元素应该被水平或垂直排列)
+
+*/
+
+.info {
+  box-sizing: border-box;
+  font-size: 14px;
+  word-wrap: break-word;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  padding: 0 5px;
+}
+
+/* 
+<div class="figcaption">
+<p>You probably can't do it (currently?) without a fixed-width font like Courier. With a fixed-width font every letter occupies the same horizontal space, so you could probably count the letters and multiply the result with the current font size in ems or exs. Then you would just have to test how many letters fit on one line, and then break it up.
+</p></div>
+
+.figcaption {
+    background: #EEE;
+    width: 410px;
+    height: 3em;
+    margin: 1em;
+}
+
+.figcaption p {
+    margin: 0;
+    line-height: 1.5em;
+}
+
+$(".figcaption").each(function(i){
+    var divH = $(this).height();
+    var $p = $("p", $(this)).eq(0);
+    while ($p.outerHeight() > divH) {
+        $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
+    };
+});
+//正则解释：空格+任意字符+（...）= ...
+//\s  包括空格、制表符、换页符等空白字符的其中任意一个
+//\w   任意一个字母或数字或下划线，也就是 A~Z,a~z,0~9,_ 中任意一个
+//?  匹配表达式0次或者1次，相当于 {0,1}，比如：点击测试 "a[cd]?"可以匹配 "a","ac","ad"
+//+  表达式至少出现1次，相当于 {1,}，比如：点击测试 "a+b"可以匹配 "ab","aab","aaab"...
+//*   表达式不出现或出现任意次，相当于 {0,}，比如：点击测试 "\^*b"可以匹配 "b","^^^b"...
+*/
