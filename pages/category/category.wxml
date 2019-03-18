@@ -2,16 +2,19 @@
 <wxs src='../../utils/categoryData.wxs' module="tools" />
 <view class="bodyColumn">
   <view class='searchPlace'>
-    <view bindtap="titleClick" class="titleArea">
-      <view data-titleClick="{{index}}" id="item{{index}}" class='title {{titleClick === index ? "redBorder" : "" }}' wx:for="{{title}}" wx:key="">
-        {{item}}
+    <view class='titleCenter'>
+      <view bindtap="titleClick" class="titleArea">
+        <view data-titleClick="{{index}}" id="item{{index}}" class='title {{titleClick === index ? "" : "" }}' wx:for="{{title}}" wx:key="">
+          {{item}}
+        </view>
       </view>
+      <view class=' redBorder ' style="position:absolute;left:{{0+50*titleClick}}%;bottom:0;width:{{titleWidth}}px;height:{{titleHeight}}px"></view>
     </view>
     <image src='../../images/search.png' bindtap='goSearchPage' class='searchIcon'></image>
   </view>
   <view>
     <swiper current="{{titleClick}}" bindchange="switchTab" class="swiperBlock" style="height:{{swiperHeight}}px">
-       <swiper-item>
+      <swiper-item>
         <scroll-view class="scroll-view" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrollToLower">
           <view>
             <text class='title'>社区活动 ></text>
@@ -62,7 +65,7 @@
           </view>
         </scroll-view>
       </swiper-item>
-     <swiper-item>
+      <swiper-item>
         <scroll-view class="body" scroll-y="true">
           <view class="item" wx:for="{{tools.list}}" wx:key="">
             <view class='cover'>
@@ -72,7 +75,6 @@
           </view>
         </scroll-view>
       </swiper-item>
-    
     </swiper>
   </view>
 </view>

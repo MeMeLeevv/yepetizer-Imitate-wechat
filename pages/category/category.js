@@ -8,6 +8,8 @@ Page({
        // windowHeight: 0,
         searchHeight: 50,
         swiperHeight: 0,
+        titleWidth:0,
+        titleHeight:0,
         flowData: {
             winWidth: 0,
             winHeight: 0,
@@ -57,6 +59,7 @@ Page({
         wx.getSystemInfo({ //微信小程序API-设备-系统信息
             success: function (res) { //接口调用成功
                 var wHeight = res.windowHeight;
+                console.log(wHeight);
                 temData.winWidth = res.windowWidth;
                 //temData.winHeight = res.windowHeight;
                 temData.height = temData.winWidth * temData.Wscale; //设置图片的高度，因为加载的图片比例为1，故设置为高=宽
@@ -64,11 +67,13 @@ Page({
                     flowData: temData,
                     swiperHeight: wHeight - that.data.searchHeight,
                 });
+                
             }
            
         })
         that.loadData();
     },
+
     //请求数据
   loadData: function () {
     var that = this;
@@ -111,15 +116,20 @@ Page({
   },
 
   onShow: function (e) {
-    /*     setTimeout(function(e){
+    var that = this;
+        setTimeout(function(e){
           //获得col的高
           const obj = wx.createSelectorQuery();
-          obj.selectAll('.userMsg').boundingClientRect()
+          obj.select('.title').boundingClientRect()
           obj.exec(function (rect) {
+            that.setData({
+                titleWidth:rect[0].width,
+                titleHeight:rect[0].height,
+            })
             console.log(rect[0],'hehe')
             //console.log(rect[0].width)
           });
-        },500) */
+        },500)
   },
 
   goSearchPage:function(e){
