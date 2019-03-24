@@ -3,6 +3,7 @@
 <view class="bodyColumn">
   <view class='searchPlace'>
     <view class='titleCenter'>
+    <!-- 导航下划线 -->
       <view bindtap="titleClick" class="titleArea">
         <view data-titleClick="{{index}}" id="item{{index}}" class='title {{titleClick === index ? "" : "" }}' wx:for="{{title}}" wx:key="">
           {{item}}
@@ -10,8 +11,10 @@
       </view>
       <view class=' redBorder ' style="position:absolute;left:{{0+50*titleClick}}%;bottom:0;width:{{titleWidth}}px;height:{{titleHeight}}px"></view>
     </view>
+
     <image src='../../images/search.png' bindtap='goSearchPage' class='searchIcon'></image>
   </view>
+  <!-- 社区活动 -->
   <view>
     <swiper current="{{titleClick}}" bindchange="switchTab" class="swiperBlock" style="height:{{swiperHeight}}px">
       <swiper-item>
@@ -31,10 +34,11 @@
             </view>
           </view>
           <view class="hr"></view>
+          <!-- 瀑布流 -->
           <view class="flow">
             <!-- >!!!!!!!!!!!!!!!!!!!!!! column下面的所有信息区块要用块状标签包围，如 block -->
             <view wx:for="{{flowData.column}}" wx:for-item="bigItem" wx:key="">
-              <!-- 分成两列 -->
+              <!-- 分成两列，参差排序 -->
               <view class="flowColumnItem">
                 <block wx:for="{{flowData.oriImg}}" wx:key="">
                   <!-- >console不会显示for所在的标签，所有以下信息部分需要统一用块状标签来整合！！！！！！！！！！！！！！ 
@@ -43,6 +47,7 @@
                     <!-- >图片宽高的获取在api中没找到，但是可以在image标签里可以找到 -->
                     <image id="{{index}}" style="height:{{flowData.height}}px;" class="colitem" src="{{item.thumb}}" bindload="onImageLoad" mode='aspectFill' lazy-load='true'></image>
                     <!-- >指定宽度width，函数（e）的数据中图片大小仍然显示原图长宽， -->
+                    <!-- 发布者信息部分 -->
                     <view class='userMsg'>
                       <view class='head'>
                         <image class="headImg" src='{{item.thumb}}' mode="aspectFit"></image>
@@ -55,6 +60,7 @@
               </view>
             </view>
           </view>
+          <!-- 下拉刷新 -->
           <view hidden='{{hideLoad}}' class='loadIcon'>
             <view wx:if="{{hideLoadIcon}}">
               <image src='../../images/loading.gif' mode='aspectFill'></image>
@@ -62,16 +68,6 @@
             <view wx:else>
               <text>NO More……</text>
             </view>
-          </view>
-        </scroll-view>
-      </swiper-item>
-      <swiper-item>
-        <scroll-view class="body" scroll-y="true">
-          <view class="item" wx:for="{{tools.list}}" wx:key="">
-            <view class='cover'>
-              <image src="{{item.imageAddress}}" mode='scaleToFill' class='pic'></image>
-            </view>
-            <text class="intro">{{item.category}}</text>
           </view>
         </scroll-view>
       </swiper-item>

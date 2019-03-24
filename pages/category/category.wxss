@@ -12,7 +12,6 @@ page{
 .bodyColumn{
   display: flex;
   flex-direction: column;
-
 }
 .item{
   width: 48%;

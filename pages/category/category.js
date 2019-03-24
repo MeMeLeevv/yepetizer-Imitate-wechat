@@ -4,14 +4,14 @@ var requires = require('../../requests/request.js');
 Page({
     data: {
         title: ["社区", "分类"],
-        titleClick: 0,//点击title文字
+        titleClick: 0,//点击导航条文字点击index
        // windowHeight: 0,
-        searchHeight: 50,
-        swiperHeight: 0,
-        titleWidth:0,
+        searchHeight: 50,//搜索图片高度
+        swiperHeight: 0,//瀑布流可视高度
+        titleWidth:0,//导航标题
         titleHeight:0,
         flowData: {
-            winWidth: 0,
+            winWidth: 0,//设备宽度
             winHeight: 0,
             Wscale: 0.45,
             oriImg: [],
@@ -23,7 +23,7 @@ Page({
           },
           hideLoadIcon: true,//加载图标
           hideLoad: true,//隐藏加载图标块,
-          background: [{
+          background: [{//幻灯片图片
             class: 'demo-text-1',
             url: '../../images/1.jpg'
           }, {
@@ -34,7 +34,7 @@ Page({
             url: '../../images/3.jpg'
           }],
     },
-    //点击title传入对应的index
+    //导航下划线：点击title传入对应的index
     titleClick: function (e) {
         var that = this;
         var clickNum = e.target.dataset.titleclick;
@@ -59,7 +59,7 @@ Page({
         wx.getSystemInfo({ //微信小程序API-设备-系统信息
             success: function (res) { //接口调用成功
                 var wHeight = res.windowHeight;
-                console.log(wHeight);
+               // console.log(wHeight);
                 temData.winWidth = res.windowWidth;
                 //temData.winHeight = res.windowHeight;
                 temData.height = temData.winWidth * temData.Wscale; //设置图片的高度，因为加载的图片比例为1，故设置为高=宽
@@ -93,12 +93,12 @@ Page({
         hideLoadIcon: true,
         hideLoad: true
       })
-      console.log(this.data.flowData);
+      //
     });
   },
+  /* 下拉刷新 */
   scrollToLower: function (e) {
-    var that = this;
-    var temData = this.data.flowData;
+    var that = this;  
     //加载3条数据项后结束请求
     if (this.data.flowData.loadNum >= 3) {//加载次数大于3则显示no more提示
       that.setData({
@@ -114,7 +114,7 @@ Page({
     }
 
   },
-
+/* 获取指定元素的css高度和宽度 */
   onShow: function (e) {
     var that = this;
         setTimeout(function(e){
@@ -126,10 +126,10 @@ Page({
                 titleWidth:rect[0].width,
                 titleHeight:rect[0].height,
             })
-            console.log(rect[0],'hehe')
+           // console.log(rect[0],'hehe')
             //console.log(rect[0].width)
           });
-        },500)
+        },500) //500ms延时需要，不然获取不到数据
   },
 
   goSearchPage:function(e){
@@ -138,23 +138,24 @@ Page({
     })
   },
 
-  //图片加载函数
+  //图片加载函数，更改外部api，换成适合的信息
   onImageLoad: function (e) {//在每个图片数据对象中修改数据，更换成可用信息
     //console.log(e.target.id);
     var index=e.target.id;
     var info = '';
     var temData = this.data.flowData;
-  
+  /* 随机描述词 */
     for (var i = 0; i < getRandomInt(0, 7); i++) {
       info = info.concat(temData.des);
-    }
-    
+    }   
     temData.oriImg[index].cate_sname = info;
-  
     this.setData({
       flowData: temData
     })
+    console.log(this.data.flowData,"onShow");
   }
+  
+  
 })
 
 //这个例子返回了一个在指定值之间的随机整数。这个值比min大（如果min不是整数，那就不小于比min大的整数），但小于（但不等于）max
