@@ -152,7 +152,7 @@ Page({
     this.setData({
       flowData: temData
     })
-    console.log(this.data.flowData,"onShow");
+    //console.log(this.data.flowData,"onShow");
   }
   
   
